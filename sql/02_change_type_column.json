@@ -1,0 +1,14 @@
+{
+  "name": "02_change_type_column",
+  "operations": [
+    {
+      "alter_column":{
+        "table": "equipment",
+        "column": "type",
+        "type": "equipment_type",
+        "up": "CASE WHEN type = ANY(ARRAY(SELECT unnest(enum_range(NULL::equipment_type))::text)) THEN type::equipment_type ELSE 'other'::equipment_type END",
+        "down": "CAST(type as TEXT)"
+      }
+    }
+  ]
+}

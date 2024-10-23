@@ -1,0 +1,11 @@
+{
+  "name": "01_create_type_column",
+  "operations": [
+    {
+      "sql": {
+        "up": "CREATE TYPE equipment_type AS ENUM ('carabiner', 'quickdraw', 'hms', 'rope', 'other');",
+        "down": "DROP TYPE equipment_type"
+      }
+    }
+  ]
+}
